@@ -32,5 +32,16 @@ namespace LINQProductReview
             var res1 = (from p in list where p.Rating > 3 && (p.ProductId.Equals(1) || p.ProductId.Equals(4) || p.ProductId.Equals(9)) select p).ToList();
             Program.IterateOverProductReview(res1);
         }
+        public static void CountEachProductID(List<ProductReview> list)
+        {//uc4
+            //here groupby duplicate values are removed and we are slecting the productid as key
+            //and aftre that we are counting how many times ecah porductid is repeating
+            Console.WriteLine("\nretriving the count of the product id");
+            var CountOfProductId = (list.GroupBy(p => p.ProductId).Select(product => new { productId = product.Key, ncount = product.Count() })).ToList();
+            foreach (var product in CountOfProductId)
+            {
+                Console.WriteLine("ProductId:{0} Count: {1}", product.productId, product.ncount);
+            }
+        }
     }
 }
