@@ -43,5 +43,15 @@ namespace LINQProductReview
                 Console.WriteLine("ProductId:{0} Count: {1}", product.productId, product.ncount);
             }
         }
+        //uc5
+        public static void RetriveProductIDAndRevies(List<ProductReview> list)
+        {
+            Console.WriteLine("\nRetriving the productId and review");
+            var res = (list.Select(product => new { productID = product.ProductId, review = product.Review })).ToList();
+            foreach (var product in res)
+            {
+                Console.WriteLine("ProductId:{0} Review: {1}", product.productID, product.review);
+            }
+        }
     }
 }
