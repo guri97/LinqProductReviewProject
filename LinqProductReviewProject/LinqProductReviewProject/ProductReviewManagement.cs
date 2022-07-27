@@ -22,5 +22,15 @@ namespace LINQProductReview
 
 
         }
+        //UC3
+        public static void RetriveBasedOnProductIdAndRatig(List<ProductReview> list)
+        {
+            Console.WriteLine("\nretriving the productid and rating");
+            //this is using the query synatx
+            //var res = list.Where(p => p.Rating > 3 && (p.ProductId == 1 || p.ProductId == 4 || p.ProductId == 9));
+            //this for the method syntax
+            var res1 = (from p in list where p.Rating > 3 && (p.ProductId.Equals(1) || p.ProductId.Equals(4) || p.ProductId.Equals(9)) select p).ToList();
+            Program.IterateOverProductReview(res1);
+        }
     }
 }

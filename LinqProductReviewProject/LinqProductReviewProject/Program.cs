@@ -13,6 +13,10 @@ namespace LINQProductReview
             List<ProductReview> list = new List<ProductReview>();//list maintain the same order
             AddProductReviewIntoList(list);
             ProductReviewManagement.RetriveTo3ReviewBasedOnTheHighestRating(list);
+            ProductReviewManagement.RetriveBasedOnProductIdAndRatig(list);
+            ProductReviewManagement.CountEachProductID(list);
+            ProductReviewManagement.RetriveProductIDAndRevies(list);
+            ProductReviewManagement.SkipTop5DataRetriveRemaining(list);
             Console.ReadLine();
 
         }
@@ -23,6 +27,8 @@ namespace LINQProductReview
                 Console.WriteLine(product);//here it will go to the overeride method inside the ProductReview class
             }
         }
+
+
         public static void AddProductReviewIntoList(List<ProductReview> list)
         {                                 //this we called as objevt intialize
             list.Add(new ProductReview() { ProductId = 1, UserId = 101, Review = "Good", IsLike = true, Rating = 8 });
