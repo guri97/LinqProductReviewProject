@@ -11,14 +11,42 @@ namespace LINQProductReview
         public static void Main(string[] args)
         {
             List<ProductReview> list = new List<ProductReview>();//list maintain the same order
-            AddProductReviewIntoList(list);
-            ProductReviewManagement.RetriveTo3ReviewBasedOnTheHighestRating(list);
-            ProductReviewManagement.RetriveBasedOnProductIdAndRatig(list);
-            ProductReviewManagement.CountEachProductID(list);
-            ProductReviewManagement.RetriveProductIDAndRevies(list);
-            ProductReviewManagement.SkipTop5DataRetriveRemaining(list);
-            Console.ReadLine();
-
+            Console.WriteLine("1.AddProductReviewIntoList\n2.RetriveTo3ReviewBasedOnTheHighestRating\n" +
+                "3.RetriveBasedOnProductIdAndRatig\n4..CountEachProductID\n5.RetriveProductIDAndRevies" +
+                "\n6.SkipTop5DataRetriveRemaining\n7.AddindDatausingDataTable");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    AddProductReviewIntoList(list);
+                    Console.ReadLine();
+                    break;
+                case 2:
+                    ProductReviewManagement.RetriveTo3ReviewBasedOnTheHighestRating(list);
+                    Console.ReadLine();
+                    break;
+                case 3:
+                    ProductReviewManagement.RetriveBasedOnProductIdAndRatig(list);
+                    Console.ReadLine();
+                    break;
+                case 4:
+                    ProductReviewManagement.CountEachProductID(list);
+                    Console.ReadLine();
+                    break;
+                case 5:
+                    ProductReviewManagement.RetriveProductIDAndRevies(list);
+                    Console.ReadLine();
+                    break;
+                case 6:
+                    ProductReviewManagement.SkipTop5DataRetriveRemaining(list);
+                    Console.ReadLine();
+                    break;
+                case 7:
+                    LinqToDataTable linq = new LinqToDataTable();
+                    linq.AddDataTable();
+                    Console.ReadLine();
+                    break;
+            }
         }
         public static void IterateOverProductReview(List<ProductReview> list)
         {//here we are iterating through the list to display the productreview inside the list
