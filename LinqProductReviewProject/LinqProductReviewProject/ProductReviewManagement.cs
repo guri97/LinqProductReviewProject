@@ -53,5 +53,12 @@ namespace LINQProductReview
                 Console.WriteLine("ProductId:{0} Review: {1}", product.productID, product.review);
             }
         }
+        //uc6
+        public static void SkipTop5DataRetriveRemaining(List<ProductReview> list)
+        {
+            Console.WriteLine("\nSkip the Top 5 Records display remaing records");
+            List<ProductReview> AfterskipRecords = list.Skip(5).ToList();
+            Program.IterateOverProductReview(AfterskipRecords);
+        }
     }
 }
