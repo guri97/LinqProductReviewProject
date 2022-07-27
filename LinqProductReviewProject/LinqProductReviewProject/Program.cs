@@ -10,15 +10,17 @@ namespace LINQProductReview
     {
         public static void Main(string[] args)
         {
-            List<ProductReview> list = new List<ProductReview>();
+            List<ProductReview> list = new List<ProductReview>();//list maintain the same order
             AddProductReviewIntoList(list);
+            ProductReviewManagement.RetriveTo3ReviewBasedOnTheHighestRating(list);
+            Console.ReadLine();
 
         }
         public static void IterateOverProductReview(List<ProductReview> list)
-        {
+        {//here we are iterating through the list to display the productreview inside the list
             foreach (ProductReview product in list)
             {
-                Console.WriteLine(product);
+                Console.WriteLine(product);//here it will go to the overeride method inside the ProductReview class
             }
         }
         public static void AddProductReviewIntoList(List<ProductReview> list)
